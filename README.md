@@ -60,7 +60,7 @@ python3 app.py
 ## To use
 Goto http://localhost:5050/ for a random image.
 <br>
-Goto http://localhost:5050/\<some text\> where `<some text>` is the seed.
+Goto http://localhost:5050/<some text\> where `<some text>` is the seed.
 <br>
 <br>
 ### For custom sizes,
@@ -70,7 +70,7 @@ Examples:
  - For random image: http://localhost:5050/?size=100
    <br>
    This changes the size of the image to 100 pixels.
- - With a seed: http://localhost:5050/\<seed\>?size=340
+ - With a seed: http://localhost:5050/<seed\>?size=340
    <br>
    Where `<seed>` is the seed.
    <br>
@@ -85,7 +85,7 @@ Accepts values:
 
 Examples:
  - For random image: http://localhost:5050/?square=1
- - With a seed: http://localhost:5050/\<seed\>?square=yes
+ - With a seed: http://localhost:5050/<seed\>?square=yes
    <br>
    Where `<seed>` is the seed.
 
@@ -96,7 +96,7 @@ Examples:
  - For random image: http://localhost:5050/?size=305&square=true
    <br>
    This changes the size of the image to 305 pixels and also makes it a square.
- - With a seed: http://localhost:5050/\<seed\>?square=y&size=1058
+ - With a seed: http://localhost:5050/<seed\>?square=y&size=1058
    <br>
    Where `<seed>` is the seed.
    <br>
