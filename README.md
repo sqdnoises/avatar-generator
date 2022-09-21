@@ -19,6 +19,18 @@ Open a terminal in the folder this readme is in.
 #### On Windows:
 
 Make sure python is on path.
+<br>
+Run:
+
+```
+python -m pip install -r requirements.txt
+```
+
+OR
+
+```
+python -m pip install colorhash
+```
 
 #### On MacOS/Linux:
 
@@ -26,6 +38,17 @@ Make sure python3 is on path.
 <br>
 (If this command gives an error saying no module pip or something, make sure any python pip related packages are installed.)
 <br>
+Run:
+
+```
+python3 -m pip install -r requirements.txt
+```
+
+OR
+
+```
+python3 -m pip install colorhash
+```
 
 ## To run
 
