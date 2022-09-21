@@ -17,7 +17,7 @@ app = FastAPI(openapi_url="")
 
 
 @app.get("/{seed}")
-async def with_seed(seed: str, size: int = 512, square=False) -> Response:
+async def with_seed(seed: str, size: int = 512, square: bool = False) -> Response:
     """Generate an avatar using the given seed."""
     return Response(content=generate_avatar_svg(seed, size, square), media_type="image/svg+xml")
 

@@ -1,11 +1,6 @@
 from colorhash import ColorHash
 
 
-def hex_no_prefix(num: int) -> str:
-    """Return a hexadecimal version of the given number but without the 0x prefix."""
-    return hex(num).lstrip("0x")
-
-
 def generate_color(seed: int | str) -> str:
     """Generate a random color and return it in hex (#xxxxxx) format."""
     return ColorHash(seed).hex
