@@ -1,4 +1,5 @@
 # Avatar Generator
+<img src="https://img.shields.io/badge/license-MIT-green">
 
 Generate gradient avatars on demand.
 <br>
