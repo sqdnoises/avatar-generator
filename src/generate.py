@@ -1,29 +1,33 @@
 from colorhash import ColorHash
 
-def round(val):
-    return int(val) + 1 if ".5" in str(val) else int(val)
 
-def generateColor(string: str):
-    length = len(string)
-    string1 = string[0:int(round(length/2))]
-    string2 = string[int(round(length/2)):length]
-    colorOne = ColorHash(string1).hex
-    colorTwo = ColorHash(string2).hex
-    return [colorOne, colorTwo]
+def hex_no_prefix(num: int) -> str:
+    """Return a hexadecimal version of the given number but without the 0x prefix."""
+    return hex(num).lstrip("0x")
 
-def generateImage(string: str, size: int = 512, square: bool = False):
-    colorOne, colorTwo = generateColor(string)
-    rect = f'rect height="{size}" width="{size}"'
-    circle = f'circle cx="{size / 2}" cy="{size / 2}" r="{size / 2}"'
-    Image = f"""
+
+def generate_color(seed: int | str) -> str:
+    """Generate a random color and return it in hex (#xxxxxx) format."""
+    return ColorHash(seed).hex
+
+
+def generate_avatar_svg(seed: str, size: int = 512, square: bool = False) -> str:
+    """Generate an avatar (just a gradient) SVG."""
+
+    color_1 = generate_color(seed)
+    color_2 = generate_color(seed[::-1])
+
+    square_svg = f'rect width="{size}" height="{size}"'
+    circle_svg = f'circle cx="{size // 2}" cy="{size // 2}" r="{size // 2}"'
+
+    return f"""
 <svg width="{size}" height="{size}" viewBox="0 0 {size} {size}" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <{rect if square else circle} fill="url(#gradient)"/>
-  <defs>
-    <linearGradient id="gradient" x1="0" y1="0" x2="{size}" y2="{size}" gradientUnits="userSpaceOnUse">
-      <stop stop-color="{colorOne}"/>
-      <stop offset="1" stop-color="{colorTwo}"/>
-    </linearGradient>
-  </defs>
+    <{square_svg if square else circle_svg} fill="url(#gradient)" />
+    <defs>
+        <linearGradient id="gradient" x1="0" y1="0" x2="{size}" y2="{size}" gradientUnits="userSpaceOnUse">
+            <stop stop-color="{color_1}" />
+            <stop offset="1" stop-color="{color_2}" />
+        </linearGradient>
+    </defs>
 </svg>
-    """.strip()
-    return Image
+    """
