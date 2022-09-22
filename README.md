@@ -96,7 +96,7 @@ Examples:
   <br>
   Where `<seed>` is the seed.
   <br>
-  This changes the size of the image to 100 pixels.
+  This changes the size of the image to 340 pixels.
 
 ### For a square image,
 
